@@ -7,24 +7,24 @@ let result;
 let a;
 let b;
 
-// Result has a maximum decimal point place of 6. 
+// Result has a maximum decimal point place of 15. 
 
 function toFixedIfNecessary(result, dp) {
   return +parseFloat(result).toFixed(dp);
 }
 
-// Function that converts number to a decimal point 2 places away to a maximum of 6.
+// Function that converts number to a decimal point 2 places away to a maximum of 15.
 
 function insertDecimal(num)  {
   num = (num / 100);
-  return toFixedIfNecessary(num, 6); 
+  return toFixedIfNecessary(num, 15); 
 }
 
 // Basic calculations
 
 function add(a, b) {
   result = a + b;
-  result = toFixedIfNecessary(result, 6);
+  result = toFixedIfNecessary(result, 15);
   equals.classList.remove('add', 'operate');
   equals.classList.add('keepGoing');
   return info.textContent = result;
@@ -32,7 +32,7 @@ function add(a, b) {
 
 function subtract(a, b) {
   result = a - b;
-  result = toFixedIfNecessary(result, 6);
+  result = toFixedIfNecessary(result, 15);
   equals.classList.remove('subtract', 'operate');
   equals.classList.add('keepGoing');
   return info.textContent = result;
@@ -40,7 +40,7 @@ function subtract(a, b) {
 
 function multiply(a, b) {
   result = a * b;
-  result = toFixedIfNecessary(result, 6);
+  result = toFixedIfNecessary(result, 15);
   equals.classList.remove('multiply', 'operate');
   equals.classList.add('keepGoing');
   return info.textContent = result;
@@ -53,7 +53,7 @@ function divide(a, b) {
     return equals.classList.add('first');
   }
   result = a / b;
-  result = toFixedIfNecessary(result, 6);
+  result = toFixedIfNecessary(result, 15);
   equals.classList.remove('divide', 'operate');
   equals.classList.add('keepGoing');
   return info.textContent = result;
