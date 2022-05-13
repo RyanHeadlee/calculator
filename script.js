@@ -80,10 +80,12 @@ function operate(a, b) {
   }
 }
 
+// Listens for number clicked and inputs it.
+
 numbers.forEach(number => {
   number.addEventListener('click', () => {
-    if (equals.classList.contains('operate')) {
-      if (equals.classList.contains('first'))  {
+    if (equals.classList.contains('operate')) { // Switches to b.
+      if (equals.classList.contains('first'))  { // Only used once per calculation.
         equals.classList.remove('first');
         info.textContent = number.textContent;
         return b = number.textContent;
@@ -101,9 +103,11 @@ numbers.forEach(number => {
   });
 });
 
+// Listens for operators and other miscellaneous buttons and properly switches to them.
+
 operators.forEach(operator => {
   operator.addEventListener('click', () => {
-    if (operator.classList.contains('decimal')) {
+    if (operator.classList.contains('decimal')) { // Inputs a decimal
       if (/[^\d]/.test(info.textContent) || equals.classList.contains('first')) return;
       info.textContent += '.';
       if (equals.classList.contains('operate')) {
@@ -112,7 +116,7 @@ operators.forEach(operator => {
         return a += '.';
       }
     }
-    if (operator.classList.contains('percent')) {
+    if (operator.classList.contains('percent')) { // Adds decimal two points inwards
       if (equals.classList.contains('operate')) {
         b = insertDecimal(b);
         return info.textContent = b;
@@ -120,7 +124,7 @@ operators.forEach(operator => {
       a = insertDecimal(a);
       return info.textContent = a;
     }
-    if (operator.classList.contains('changeSign')) {
+    if (operator.classList.contains('changeSign')) { // Flips between positive and negative
       if (equals.classList.contains('operate')) {
         if (b.substring(0,1) !== '-') {
           b = "-" + b;
@@ -158,11 +162,11 @@ operators.forEach(operator => {
   })
 })
 
-equals.addEventListener('click', () => {
+equals.addEventListener('click', () => { // When equal is clicked it operates num 1 and num 2.
   operate(a, b);
 })
 
-clear.addEventListener('click', () => {
+clear.addEventListener('click', () => { // Clears All.
   info.textContent = "N/A";
   operators.forEach(operator => operator.classList.remove('active'));
   a = 0;
@@ -171,7 +175,7 @@ clear.addEventListener('click', () => {
   equals.classList.add('first');
 })
 
-window.addEventListener('click', () => {
+window.addEventListener('click', () => { // 'a' will properly = result regardless of which button is clicked.
   if (equals.classList.contains('keepGoing')) {
     equals.classList.remove('keepGoing');
     a = result;
