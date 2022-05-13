@@ -1,5 +1,7 @@
 let result;
-const buttons = document.querySelectorAll('.buttonsContainer button')
+const info = document.querySelector('.calcInfo');
+const numbers = document.querySelectorAll('.number');
+const operators = document.querySelectorAll('.operator');
 
 function add(a, b) {
   result = a + b;
@@ -21,8 +23,10 @@ function divide(a, b) {
   return result;
 }
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    
+numbers.forEach(number => {
+  number.addEventListener('click', () => {
+    if (number.classList.contains('number')) {
+      info.textContent = number.textContent;
+    }
   });
 });
