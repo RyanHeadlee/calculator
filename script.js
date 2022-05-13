@@ -14,25 +14,37 @@ function add(a, b) {
 
 function subtract(a, b) {
   result = a - b;
-  return result;
+  equals.classList.remove('subtract');
+  return info.textContent = result;
 }
 
 function multiply(a, b) {
   result = a * b;
-  return result;
+  equals.classList.remove('multiply');
+  return info.textContent = result;
 }
 
 function divide(a, b) {
   result = a / b;
-  return result;
+  equals.classList.remove('divide');
+  return info.textContent = result;
 }
 
 function operate(a, b) {
   a = Number(a);
   b = Number(b);
-  equals.classList.remove('operate');
+  equals.classList.add('operate');
   if (equals.classList.contains('add')) {
     return add(a, b);
+  }
+  if (equals.classList.contains('subtract')) {
+    return subtract(a, b);
+  }
+  if (equals.classList.contains('multiply')) {
+    return multiply(a, b);
+  }
+  if (equals.classList.contains('divide')) {
+    return divide(a, b);
   }
 }
 
@@ -58,8 +70,19 @@ numbers.forEach(number => {
 
 operators.forEach(operator => {
   operator.addEventListener('click', () => {
+    equals.classList.remove('add', 'subtract', 'multiply', 'divide');
+    equals.classList.add('operate', 'first');
     if (operator.classList.contains('add')) {
-      return equals.classList.add('add', 'operate', 'first');
+      return equals.classList.add('add');
+    }
+    if (operator.classList.contains('subtract')) {
+      return equals.classList.add('subtract');
+    }
+    if (operator.classList.contains('multiply')) {
+      return equals.classList.add('multiply');
+    }
+    if (operator.classList.contains('divide')) {
+      return equals.classList.add('divide');
     }
   })
 })
