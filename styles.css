@@ -9,7 +9,21 @@ body {
   height: 85vh;
 }
 
-.numericButtons {
+.calcContainer {
+  outline: 3px solid black;
+  padding: 3em 1em;
+  width: 10em; 
+  height: 12em;
+}
+
+.infoContainer {
+  outline: 3px solid black;
+  padding: 0.2em;
+  margin-bottom: 2em;
+}
+
+.buttonsContainer {
   display: grid;
   grid-template-columns: repeat(4, auto);
+  gap: 0.2em;
 }
