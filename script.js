@@ -111,6 +111,24 @@ operators.forEach(operator => {
       a = insertDecimal(a);
       return info.textContent = a;
     }
+    if (operator.classList.contains('changeSign')) {
+      if (equals.classList.contains('operate')) {
+        if (b.substring(0,1) !== '-') {
+          b = "-" + b;
+          return info.textContent = b;
+        } else {
+          b = b.replace(/[^\d\.]/, '');
+          return info.textContent = b;
+        }
+      }
+      if (a.substring(0,1) !== '-') {
+        a = "-" + a;
+        return info.textContent = a;
+      } else {
+        a = a.replace(/[^\d\.]/, '');
+        return info.textContent = a;
+      }
+    }
 
     equals.classList.remove('add', 'subtract', 'multiply', 'divide');
     equals.classList.add('operate', 'first');
