@@ -25,8 +25,6 @@ function divide(a, b) {
 
 numbers.forEach(number => {
   number.addEventListener('click', () => {
-    if (number.classList.contains('number')) {
-      info.textContent = number.textContent;
-    }
+    info.textContent = number.textContent;
   });
 });

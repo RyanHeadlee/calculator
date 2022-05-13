@@ -18,9 +18,14 @@ body {
 }
 
 .infoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   outline: 3px solid black;
   height: 3em;
   margin-bottom: 2em;
+  padding: 0 0.5em;
 }
 
 .buttonsContainer {
