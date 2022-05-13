@@ -7,14 +7,20 @@ let result;
 let a;
 let b;
 
+// Result has a maximum decimal point place of 6. 
+
 function toFixedIfNecessary(result, dp) {
   return +parseFloat(result).toFixed(dp);
 }
+
+// Function that converts number to a decimal point 2 places away to a maximum of 6.
 
 function insertDecimal(num)  {
   num = (num / 100);
   return toFixedIfNecessary(num, 6); 
 }
+
+// Basic calculations
 
 function add(a, b) {
   result = a + b;
@@ -53,10 +59,13 @@ function divide(a, b) {
   return info.textContent = result;
 }
 
+// Calls the correct function to calculate
+
 function operate(a, b) {
   a = Number(a);
   b = Number(b);
   equals.classList.add('operate');
+  operators.forEach(operator => operator.classList.remove('active'));
   if (equals.classList.contains('add')) {
     return add(a, b);
   }
@@ -129,7 +138,8 @@ operators.forEach(operator => {
         return info.textContent = a;
       }
     }
-
+    operators.forEach(operator => operator.classList.remove('active'));
+    operator.classList.add("active");
     equals.classList.remove('add', 'subtract', 'multiply', 'divide');
     equals.classList.add('operate', 'first');
 
@@ -154,6 +164,7 @@ equals.addEventListener('click', () => {
 
 clear.addEventListener('click', () => {
   info.textContent = "N/A";
+  operators.forEach(operator => operator.classList.remove('active'));
   a = 0;
   b = 0;
   equals.classList.remove(...equals.classList);

@@ -33,3 +33,7 @@ body {
   grid-template-columns: repeat(4, auto);
   gap: 0.2em;
 }
+
+.active {
+  background-color: yellow;
+}
