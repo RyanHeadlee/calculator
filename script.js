@@ -12,7 +12,7 @@ function toFixedIfNecessary(result, dp) {
 }
 
 function insertDecimal(num)  {
-  num = (num / 100).toFixed(2);
+  num = (num / 100);
   return toFixedIfNecessary(num, 6); 
 }
 
