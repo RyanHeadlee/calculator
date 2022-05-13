@@ -1,4 +1,5 @@
 let result;
+const buttons = document.querySelectorAll('.buttonsContainer button')
 
 function add(a, b) {
   result = a + b;
@@ -19,3 +20,9 @@ function divide(a, b) {
   result = a / b;
   return result;
 }
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    
+  });
+});
