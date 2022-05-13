@@ -12,7 +12,8 @@ function toFixedIfNecessary(result, dp) {
 }
 
 function insertDecimal(num)  {
-  return (num / 100).toFixed(2);
+  num = (num / 100).toFixed(2);
+  return toFixedIfNecessary(num, 6); 
 }
 
 function add(a, b) {
@@ -67,10 +68,6 @@ function operate(a, b) {
 
 numbers.forEach(number => {
   number.addEventListener('click', () => {
-    if (equals.classList.contains('keepGoing')) {
-      equals.classList.remove('keepGoing');
-      a = result;
-    }
     if (equals.classList.contains('operate')) {
       if (equals.classList.contains('first'))  {
         equals.classList.remove('first');
@@ -93,7 +90,7 @@ numbers.forEach(number => {
 operators.forEach(operator => {
   operator.addEventListener('click', () => {
     if (operator.classList.contains('decimal')) {
-      if (/[^\d]/.test(info.textContent)) return;
+      if (/[^\d]/.test(info.textContent) || equals.classList.contains('first')) return;
       info.textContent += '.';
       if (equals.classList.contains('operate')) {
         return b += '.'; 
@@ -101,9 +98,18 @@ operators.forEach(operator => {
         return a += '.';
       }
     }
+    if (operator.classList.contains('percent')) {
+      if (equals.classList.contains('operate')) {
+        b = insertDecimal(b);
+        return info.textContent = b;
+      }
+      a = insertDecimal(a);
+      return info.textContent = a;
+    }
 
     equals.classList.remove('add', 'subtract', 'multiply', 'divide');
     equals.classList.add('operate', 'first');
+
     if (operator.classList.contains('add')) {
       return equals.classList.add('add');
     }
@@ -127,4 +133,11 @@ clear.addEventListener('click', () => {
   info.textContent = 0;
   equals.classList.remove(...equals.classList);
   equals.classList.add('first');
+})
+
+window.addEventListener('click', () => {
+  if (equals.classList.contains('keepGoing')) {
+    equals.classList.remove('keepGoing');
+    a = result;
+  }
 })
