@@ -2,12 +2,17 @@ const info = document.querySelector('.calcInfo');
 const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');
 const equals = document.querySelector('#equals');
+const clear = document.querySelector('.clear');
 let result;
 let a;
 let b;
 
 function toFixedIfNecessary(result, dp) {
   return +parseFloat(result).toFixed(dp);
+}
+
+function insertDecimal(num)  {
+  return (num / 100).toFixed(2);
 }
 
 function add(a, b) {
@@ -87,6 +92,16 @@ numbers.forEach(number => {
 
 operators.forEach(operator => {
   operator.addEventListener('click', () => {
+    if (operator.classList.contains('decimal')) {
+      if (/[^\d]/.test(info.textContent)) return;
+      info.textContent += '.';
+      if (equals.classList.contains('operate')) {
+        return b += '.'; 
+      } else {
+        return a += '.';
+      }
+    }
+
     equals.classList.remove('add', 'subtract', 'multiply', 'divide');
     equals.classList.add('operate', 'first');
     if (operator.classList.contains('add')) {
@@ -106,4 +121,10 @@ operators.forEach(operator => {
 
 equals.addEventListener('click', () => {
   operate(a, b);
+})
+
+clear.addEventListener('click', () => {
+  info.textContent = 0;
+  equals.classList.remove(...equals.classList);
+  equals.classList.add('first');
 })
