@@ -41,6 +41,11 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+  if (b === 0) {
+    info.textContent = "Come on son";
+    equals.classList.remove(...equals.classList);
+    return equals.classList.add('first');
+  }
   result = a / b;
   result = toFixedIfNecessary(result, 6);
   equals.classList.remove('divide', 'operate');
@@ -130,7 +135,9 @@ equals.addEventListener('click', () => {
 })
 
 clear.addEventListener('click', () => {
-  info.textContent = 0;
+  info.textContent = "N/A";
+  a = 0;
+  b = 0;
   equals.classList.remove(...equals.classList);
   equals.classList.add('first');
 })
