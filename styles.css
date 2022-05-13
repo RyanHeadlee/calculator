@@ -11,10 +11,15 @@ body {
 }
 
 .calcContainer {
-  outline: 3px solid black;
+  border: 3px solid black;
+  border-radius: 7px;
   padding: 3em 1em;
-  width: 10em; 
-  height: 12em;
+  width: 21em; 
+  height: 25em;
+}
+
+.calcInfo {
+  font-size: 20px;
 }
 
 .infoContainer {
@@ -22,7 +27,8 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  outline: 3px solid black;
+  border: 3px solid black;
+  border-radius: 7px;
   height: 3em;
   margin-bottom: 2em;
   padding: 0 0.5em;
@@ -32,6 +38,10 @@ body {
   display: grid;
   grid-template-columns: repeat(4, auto);
   gap: 0.2em;
+  border: 2px solid black;
+  border-radius: 7px;
+  padding: 0.5em;
+  height: 15em;
 }
 
 .active {
