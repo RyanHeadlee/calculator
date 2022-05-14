@@ -56,8 +56,10 @@ body {
   height: 2.8em;
 }
 
-.buttonsContainer button:hover {
-  background-color: #64625F !important;
+.buttonsContainer button:hover, 
+#top:hover,
+#side:hover {
+  background-color: #64625F;
 }
 
 #top, #side {
@@ -66,5 +68,5 @@ body {
 }
 
 .active {
-  background-color: yellow !important;
+  background-color: #E34029 !important;
 }
