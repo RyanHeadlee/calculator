@@ -84,13 +84,18 @@ function operate(a, b) {
 
 numbers.forEach(number => {
   number.addEventListener('click', () => {
-    if (info.textContent.length == 20) {
-      if (equals.classList.contains('operate')) {
-        b = b.substring(0, (b.length -1));
-      } else {
+    if (!equals.classList.contains('operate')){
+      if (info.textContent.length >= 15) {
         a = a.substring(0, (a.length - 1));
+        info.textContent = info.textContent.substring(0, info.textContent.length -1);
       }
-      return info.textContent = info.textContent.substring(0, info.textContent.length -1);
+      if (equals.classList.contains('first'))  {
+        equals.classList.remove('first');
+        info.textContent = number.textContent;
+        return a = number.textContent;
+      }
+      info.textContent += number.textContent;
+      return a += number.textContent;
     }
     if (equals.classList.contains('operate')) { // Switches to b.
       if (equals.classList.contains('first'))  { // Only used once per calculation.
@@ -98,16 +103,13 @@ numbers.forEach(number => {
         info.textContent = number.textContent;
         return b = number.textContent;
       }
+      if (info.textContent.length >= 15) {
+        info.textContent = info.textContent.substring(0, info.textContent.length -1);
+        b = b.substring(0, b.length - 1);  
+      }
       info.textContent += number.textContent;
       return b += number.textContent;
     }
-    if (equals.classList.contains('first'))  {
-      equals.classList.remove('first');
-      info.textContent = number.textContent;
-      return a = number.textContent;
-    }
-    info.textContent += number.textContent;
-    return a += number.textContent;
   });
 });
 
