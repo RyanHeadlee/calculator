@@ -84,7 +84,7 @@ function operate(a, b) {
 
 numbers.forEach(number => {
   number.addEventListener('click', () => {
-    if (info.textContent.length > 20) return;
+    if (info.textContent.length > 20) return; // FIX!!!
     if (equals.classList.contains('operate')) { // Switches to b.
       if (equals.classList.contains('first'))  { // Only used once per calculation.
         equals.classList.remove('first');

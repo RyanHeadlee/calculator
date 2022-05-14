@@ -17,12 +17,13 @@ body {
   padding: 3em 1em;
   width: 21em; 
   height: 25em;
-  background-color: gray;
+  background-color: dimgray;
 }
 
 .calcInfo {
   font-size: 25px;
   font-weight: bold;
+  text-shadow: 1.5px -1px #64625F;
 }
 
 .infoContainer {
@@ -35,7 +36,7 @@ body {
   height: 3em;
   margin-bottom: 2em;
   padding: 0 0.5em;
-  background-color: white;
+  background-color: #ACA9A6;
 }
 
 .buttonsContainer {
@@ -44,24 +45,22 @@ body {
   gap: 0.5em;
   padding: 0.5em;
   height: 20em;
-  position: absolute;
 }
 
 .buttonsContainer button {
-  border: 2px solid black;
+  border: 2.5px solid black;
   border-radius: 2em;
   font-size: 20px;
-  background-color: orange;
+  background-color: #F68807;
   width: 3.7em;
   height: 2.8em;
 }
 
-#top {
-  background-color: black;
-  color: white;
+.buttonsContainer button:hover {
+  background-color: #64625F !important;
 }
 
-#side {
+#top, #side {
   background-color: black;
   color: white;
 }
