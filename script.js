@@ -116,7 +116,7 @@ numbers.forEach(number => {
 operators.forEach(operator => {
   operator.addEventListener('click', () => {
     if (operator.classList.contains('decimal')) { // Inputs a decimal
-      if (/[^\d]/.test(info.textContent) || equals.classList.contains('first')) return;
+      if (/[^\d-]/.test(info.textContent) || equals.classList.contains('first')) return;
       info.textContent += '.';
       if (equals.classList.contains('operate')) {
         return b += '.'; 
