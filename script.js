@@ -84,7 +84,14 @@ function operate(a, b) {
 
 numbers.forEach(number => {
   number.addEventListener('click', () => {
-    if (info.textContent.length > 20) return; // FIX!!!
+    if (info.textContent.length == 20) {
+      if (equals.classList.contains('operate')) {
+        b = b.substring(0, (b.length -1));
+      } else {
+        a = a.substring(0, (a.length - 1));
+      }
+      return info.textContent = info.textContent.substring(0, info.textContent.length -1);
+    }
     if (equals.classList.contains('operate')) { // Switches to b.
       if (equals.classList.contains('first'))  { // Only used once per calculation.
         equals.classList.remove('first');
@@ -164,6 +171,7 @@ operators.forEach(operator => {
 })
 
 equals.addEventListener('click', () => { // When equal is clicked it operates num 1 and num 2.
+  if (equals.classList.contains('first')) return;
   operate(a, b);
 })
 
