@@ -42,10 +42,20 @@ body {
 .buttonsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: center;
   gap: 0.5em;
   padding: 0.5em;
   height: 20em;
 }
+.zeroContainer {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.zero.number {
+  width: 7.7em;
+}
+
 
 .buttonsContainer button {
   border: 2.5px solid black;
@@ -58,11 +68,12 @@ body {
 
 .buttonsContainer button:hover, 
 #top:hover,
-#side:hover {
+#side:hover,
+#equals:hover {
   background-color: #64625F;
 }
 
-#top, #side {
+#top, #side, #equals {
   background-color: black;
   color: white;
 }
