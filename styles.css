@@ -23,7 +23,7 @@ body {
 .calcInfo {
   font-size: 25px;
   font-weight: bold;
-  text-shadow: 1.5px -1px #64625F;
+  text-shadow: -1.2px -0.8px #64625F;
 }
 
 .infoContainer {
@@ -47,6 +47,7 @@ body {
   padding: 0.5em;
   height: 20em;
 }
+
 .zeroContainer {
   grid-column-start: 1;
   grid-column-end: 3;
@@ -56,11 +57,12 @@ body {
   width: 7.7em;
 }
 
-
 .buttonsContainer button {
   border: 2.5px solid black;
   border-radius: 2em;
   font-size: 20px;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
   background-color: #F68807;
   width: 3.7em;
   height: 2.8em;
