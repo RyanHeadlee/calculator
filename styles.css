@@ -23,7 +23,7 @@ body {
 .calcInfo {
   font-size: 25px;
   font-weight: bold;
-  text-shadow: -1.2px -0.8px #64625F;
+  text-shadow: -1.2px -0.8px 0.5px #64625F;
 }
 
 .infoContainer {
